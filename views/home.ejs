@@ -1,0 +1,47 @@
+<%- include("partials/header"); -%>
+
+<div class="v-header">
+  <div class="fullscreen-video-wrap">
+    <video src="/video/home.mp4" autoplay="true" loop="true"></video>
+    <div class="header-overlay">
+
+        <section class="post-section" id="home-posts">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="posts-box col-lg-8">
+                <h1>November 15, 2020 (Default Sample)</h1>
+                <p> <%= startingContent %> </p>
+
+                <%  posts.forEach(function(post){ %>
+
+                <h1><%=post.title%></h1>
+                <p>
+                  <%=post.content.substring(0, 200) + " ..."%>
+                  <a href="/posts/<%=post._id%>">Read More</a>
+                </p>
+                <% }) %>
+              </div>
+
+                  <form class="" action="/compose" method="post">
+                    <div class="posts-box col-md-4">
+                      <h1>Compose</h1>
+                      <div class="form-group">
+                        <label>Title</label>
+                        <input class="form-control" type="text" name="postTitle" required>
+                        <label>Post</label>
+                        <textarea class="form-control" name="postBody" rows="8" cols="30" required></textarea><br>
+                        <button class="btn btn-primary" type="submit" name="button">Publish</button>
+                      </div>
+                    </div>
+                  </form>
+
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer"); -%>
